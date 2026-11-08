@@ -1,0 +1,314 @@
+/* Ticket to Hell via Dieppe: online reading edition.
+   Same palette and fonts as the main page (site/style.css); book typography from the EPUB (EPUB Build/style.css). */
+
+:root {
+  --paper: #f4ecdc;
+  --paper-deep: #e9dcc3;
+  --card: #fbf6ec;
+  --ink: #221c16;
+  --ink-soft: #5a4d40;
+  --rule: #d4c3a3;
+  --red: #b3201b;
+  --red-ink: #ffffff;
+  --red-hover: #8f1813;
+  --shadow: 0 1px 2px rgb(60 40 20 / 0.08), 0 8px 24px rgb(60 40 20 / 0.12);
+
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --slab: "Zilla Slab", "Rockwell", Georgia, serif;
+  --scale: 1;
+  --measure: 36em;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b1714;
+    --paper-deep: #241f1a;
+    --card: #2a241e;
+    --ink: #efe6d6;
+    --ink-soft: #bfb19d;
+    --rule: #43392e;
+    --red: #e0443b;
+    --red-ink: #1b1714;
+    --red-hover: #f06a61;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.35);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #1b1714;
+  --paper-deep: #241f1a;
+  --card: #2a241e;
+  --ink: #efe6d6;
+  --ink-soft: #bfb19d;
+  --rule: #43392e;
+  --red: #e0443b;
+  --red-ink: #1b1714;
+  --red-hover: #f06a61;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: calc(1.15rem * var(--scale));
+  line-height: 1.65;
+}
+
+img { max-width: 100%; height: auto; }
+a { color: var(--red); text-underline-offset: 0.15em; }
+a:hover { color: var(--red-hover); }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--slab); font-weight: 700; line-height: 1.2; text-wrap: balance; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 20;
+  background: var(--ink); color: var(--paper); padding: 8px 14px; border-radius: 4px;
+}
+.skip-link:focus { top: 12px; color: var(--paper); }
+
+/* ---------------------------------------------------------------- top bar */
+
+.bar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--paper-deep) 92%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+}
+.bar-in {
+  max-width: 1080px; margin: 0 auto; padding: 0 16px; height: 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.home {
+  font-family: var(--slab); font-weight: 700; font-size: 1.1rem;
+  color: var(--ink); text-decoration: none; white-space: nowrap;
+}
+.home span { color: var(--red); }
+.bar-nav { display: flex; align-items: center; gap: 4px; }
+.bar-nav a, .settings-btn {
+  color: var(--ink); text-decoration: none; padding: 6px 10px; border-radius: 6px;
+  font: 600 0.95rem/1.2 var(--serif); background: none; border: 0; cursor: pointer;
+}
+.bar-nav a:hover, .settings-btn:hover, .settings-btn[aria-expanded="true"] { background: var(--rule); color: var(--ink); }
+.settings-btn { font-family: var(--slab); font-size: 1.05rem; }
+@media (max-width: 420px) {
+  .home span { display: none; }
+}
+
+.progress { height: 3px; }
+.progress span { display: block; height: 100%; width: 0; background: var(--red); }
+body.is-home .progress, body.is-gallery .progress { display: none; }
+
+.settings {
+  position: sticky; top: 56px; z-index: 9;
+  max-width: 360px; margin: 8px 16px 0 auto; padding: 14px 16px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 8px; box-shadow: var(--shadow);
+  font-size: 1rem;
+}
+@media (min-width: 1112px) { .settings { margin-right: calc((100vw - 1080px) / 2 + 16px); } }
+.settings[hidden] { display: none; }
+.setting { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.setting + .setting { margin-top: 10px; }
+.setting .label { flex: 0 0 5.5em; color: var(--ink-soft); }
+.setting button {
+  min-width: 44px; min-height: 36px; padding: 4px 10px;
+  border: 1px solid var(--rule); border-radius: 6px; background: var(--paper);
+  color: var(--ink); font: 600 0.95rem var(--serif); cursor: pointer;
+}
+.setting button:hover { border-color: var(--ink-soft); }
+.setting button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ---------------------------------------------------------------- reading text */
+
+main { padding: 0 16px; }
+
+.text, .gallery { max-width: var(--measure); margin: 0 auto; padding: 24px 0 32px; }
+.gallery { max-width: 1080px; }
+
+[id] { scroll-margin-top: 72px; }
+
+.text h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  text-align: center;
+  margin: 1.4em 0 1.2em;
+}
+.text h1 .chapnum {
+  display: block; margin-bottom: 0.45em;
+  font-family: var(--serif); font-weight: 600; font-size: 0.42em;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+}
+.text h2 { font-size: 1.4em; margin: 1.8em 0 0.6em; }
+.text h3 { font-size: 1.1em; margin: 1.8em 0 0.6em; text-align: center; letter-spacing: 0.03em; }
+
+.text p { margin: 0; text-indent: 1.5em; hyphens: auto; -webkit-hyphens: auto; }
+.text h1 + p, .text h2 + p, .text h3 + p, .text figure + p, .text aside + p, .text table + p { text-indent: 0; }
+.text h1 + p::first-line { font-variant-caps: small-caps; letter-spacing: 0.03em; }
+
+/* figures */
+.text figure { margin: 2em 0; text-align: center; }
+.text figure .zoom { display: inline-block; cursor: zoom-in; border-radius: 3px; }
+.text figure img {
+  display: block; margin: 0 auto; max-height: 80vh; width: auto;
+  border-radius: 2px; box-shadow: var(--shadow); background: var(--paper-deep);
+}
+@media (min-width: 900px) {
+  /* let pictures run a little wider than the text column */
+  .text figure { margin-left: -6em; margin-right: -6em; }
+  .text figure figcaption { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+}
+.text figcaption {
+  margin-top: 0.8em; font-size: 0.88em; font-style: italic; line-height: 1.45;
+  color: var(--ink-soft); text-align: center;
+}
+.text figcaption .figtitle { font-style: normal; }
+.text .transcription {
+  display: block; margin-top: 0.8em; padding: 0.6em 0.9em;
+  font-style: normal; text-align: left; color: var(--ink);
+  border-left: 3px solid var(--rule); background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+.text .transcription .label { font-weight: 600; }
+
+aside.sidebar {
+  margin: 2em 0; padding: 1em 1.2em; text-align: center; font-size: 0.92em;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 6px;
+}
+aside.sidebar h3 { margin: 0.2em 0 0.4em; font-size: 1em; text-transform: uppercase; letter-spacing: 0.08em; }
+aside.sidebar p { text-indent: 0; margin-bottom: 0.7em; }
+
+/* ballads */
+.text p.verse { text-indent: 0; margin: 1em 0 1em 8%; line-height: 1.55; hyphens: manual; }
+.text p.note { text-indent: 0; margin: 1em 0; }
+
+/* appendices */
+.text p.doc-head { text-indent: 0; font-weight: 600; margin: 1.5em 0 0.4em; }
+.text p.doc { text-indent: 0; margin: 0 0 0.6em; }
+.text p.sig { text-indent: 0; text-align: right; font-style: italic; margin: 0.2em 0 0.8em; }
+ol.orders { margin: 0.4em 0 0.6em 1.5em; padding: 0; }
+ol.orders li { margin: 0.2em 0; }
+table.raids { border-collapse: collapse; margin: 1.2em auto; font-size: 0.92em; font-variant-numeric: tabular-nums; }
+table.raids caption { font-weight: 600; margin-bottom: 0.4em; }
+table.raids td, table.raids th { padding: 0.15em 0.9em; border-bottom: 1px solid var(--rule); }
+table.raids td.n { text-align: right; }
+.text p.total { text-indent: 0; text-align: center; font-weight: 600; margin: 0.8em 0 1.5em; }
+
+/* previous / next */
+.pager {
+  max-width: var(--measure); margin: 0 auto 48px; padding-top: 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  border-top: 1px solid var(--rule); font-size: 1rem;
+}
+.pager a {
+  display: block; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--card); color: var(--ink); text-decoration: none; line-height: 1.3;
+}
+.pager a:hover { border-color: var(--red); color: var(--ink); }
+.pager span {
+  display: block; margin-bottom: 4px; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--red);
+}
+.pager .next { text-align: right; grid-column: 2; }
+
+/* ---------------------------------------------------------------- contents page */
+
+body.is-home main { max-width: 820px; margin: 0 auto; padding: 32px 16px 48px; }
+.intro { display: grid; gap: 28px; justify-items: center; text-align: center; }
+@media (min-width: 640px) {
+  .intro { grid-template-columns: 220px 1fr; align-items: center; justify-items: start; text-align: left; gap: 40px; }
+}
+.book-cover { margin: 0; width: min(55vw, 220px); }
+.book-cover img { display: block; border-radius: 3px; box-shadow: 0 2px 4px rgb(40 25 10 / 0.2), 0 18px 40px rgb(40 25 10 / 0.35); }
+.book-title { margin: 0; font-size: clamp(2.2rem, 7vw, 3.2rem); }
+.book-title span { display: block; color: var(--red); }
+.book-sub { margin: 10px 0 0; font-style: italic; color: var(--ink-soft); }
+.book-author { margin: 6px 0 0; font: 600 1.25rem var(--slab); }
+.start { margin: 24px 0 0; }
+.continue { margin: 12px 0 0; font-size: 1rem; }
+
+.button {
+  display: inline-block; padding: 11px 22px; border-radius: 6px; border: 2px solid var(--red);
+  background: var(--red); color: var(--red-ink); font: 600 1rem/1.3 var(--serif); text-decoration: none;
+}
+.button:hover { background: var(--red-hover); border-color: var(--red-hover); color: var(--red-ink); }
+.button.secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+.button.secondary:hover { background: var(--ink); color: var(--paper); }
+
+.dedication { margin: 48px auto 0; max-width: 30em; text-align: center; font-style: italic; color: var(--ink-soft); }
+.dedication p { margin: 0 0 0.6em; }
+
+.contents { margin-top: 48px; }
+.contents h2 { font-size: 1.9rem; margin: 0 0 12px; }
+.contents h3 {
+  margin: 32px 0 8px; font: 600 0.95rem var(--serif); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+ol.toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+ol.toc li { border-bottom: 1px solid var(--rule); }
+ol.toc a { display: flex; gap: 14px; align-items: baseline; padding: 12px 4px; color: var(--ink); text-decoration: none; font-size: 1.1rem; }
+ol.toc a:hover { color: var(--red); background: color-mix(in srgb, var(--card) 70%, transparent); }
+ol.toc .num { flex: 0 0 7.6em; white-space: nowrap; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+ol.toc li.current a::after { content: "Reading"; margin-left: auto; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+.gallery-link { margin: 28px 0 0; font-size: 1.05rem; }
+
+.copyright-note { margin-top: 48px; font-size: 0.85rem; color: var(--ink-soft); }
+.copyright-note p { margin: 0 0 0.6em; }
+
+/* ---------------------------------------------------------------- gallery */
+
+.gallery h1 { font-size: clamp(2rem, 6vw, 2.6rem); margin: 0.8em 0 0.3em; }
+.gallery .lede { margin: 0 0 1em; color: var(--ink-soft); max-width: 40em; }
+.gallery h2 { font-size: 1.25rem; margin: 2em 0 0.8em; }
+.gallery h2 a { color: var(--ink); text-decoration: none; }
+.gallery h2 a:hover { color: var(--red); }
+.thumbs {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.thumbs a { display: block; color: var(--ink); text-decoration: none; font-size: 0.88rem; line-height: 1.35; }
+.thumbs img {
+  display: block; width: 100%; aspect-ratio: 1; object-fit: cover; margin-bottom: 6px;
+  border-radius: 4px; box-shadow: var(--shadow); background: var(--paper-deep);
+}
+.thumbs a:hover span { color: var(--red); }
+
+/* ---------------------------------------------------------------- picture viewer */
+
+dialog.lightbox {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0;
+  border: 0; background: rgb(12 10 8 / 0.96); color: #efe6d6; overflow: auto;
+}
+dialog.lightbox::backdrop { background: rgb(12 10 8 / 0.9); }
+.lightbox .lb-close {
+  position: fixed; top: 12px; right: 12px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgb(255 255 255 / 0.15); color: #fff; font-size: 1.6rem; line-height: 1;
+}
+.lightbox .lb-close:hover { background: rgb(255 255 255 / 0.3); }
+.lightbox figure { margin: 0; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px 12px 24px; }
+.lightbox img { display: block; max-width: 100%; height: auto; cursor: zoom-out; }
+.lightbox img.fit { max-height: calc(100dvh - 140px); width: auto; }
+.lightbox figcaption { max-width: 44em; margin-top: 12px; font: italic 0.95rem/1.45 var(--serif); text-align: center; color: #d8ccb8; }
+
+/* ---------------------------------------------------------------- footer */
+
+.site-footer {
+  padding: 28px 16px 40px; border-top: 1px solid var(--rule);
+  background: var(--paper-deep); color: var(--ink-soft); font-size: 0.9rem;
+}
+.site-footer p { max-width: 70ch; margin: 0 auto 8px; text-align: center; }
+
+@media print {
+  .bar, .settings, .pager, .site-footer, .skip-link { display: none; }
+  body { background: #fff; color: #000; }
+}

@@ -14,6 +14,7 @@ Output:
   Ticket to Hell via Dieppe - Illustrated.epub
   or, with --no-images, Ticket to Hell via Dieppe - Text Only.epub
   (same text and cover; no pictures, captions or the photo appendix)
+  --out PATH writes to PATH instead.
 """
 import html, io, json, re, sys, uuid, zipfile
 from datetime import datetime, timezone
@@ -27,7 +28,9 @@ IMG = ROOT / "Images"
 COVER_FILE = "Book Cover.png"
 NO_IMAGES = "--no-images" in sys.argv[1:]
 EDITION = "Text Only" if NO_IMAGES else "Illustrated"
-OUT = ROOT / f"Ticket to Hell via Dieppe - {EDITION}.epub"
+_args = sys.argv[1:]
+# --out PATH writes the EPUB somewhere else (build_web.py uses this so the committed EPUB isn't touched).
+OUT = Path(_args[_args.index("--out") + 1]) if "--out" in _args else ROOT / f"Ticket to Hell via Dieppe - {EDITION}.epub"
 TITLE = "Ticket to Hell via Dieppe"
 SUBTITLE = "From a Prisoner’s Wartime Log, 1942–1945"
 AUTHOR = "A. Robert Prouse"
