@@ -12,7 +12,7 @@ Ticket to Hell is a gruelling account of war and captivity, and of the qualities
 
 ## Download
 
-Download the ebooks, PDF and audiobook from the [book's web page](https://rprouse.github.io/ticket-to-hell/) or the [latest release](https://github.com/rprouse/ticket-to-hell/releases/latest).
+Download the ebooks, PDF and audiobook from the [book's web page](https://tth-dieppe.github.io/ticket-to-hell/) or the [latest release](https://github.com/tth-dieppe/ticket-to-hell/releases/latest).
 
 ## Notes
 

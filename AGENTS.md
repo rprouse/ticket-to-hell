@@ -108,7 +108,7 @@ Nicknames are hyphenated and consistent: `Plank-face`, `Crazy-legs`, `Gee-guts`,
 
 ## Releases (GitHub)
 
-The repository is `rprouse/ticket-to-hell` on GitHub, and the default branch is `main`. `.github/workflows/release.yml` publishes a new GitHub release **only for pushes to `main`** that change one of these:
+The repository is `tth-dieppe/ticket-to-hell` on GitHub, and the default branch is `main`. `.github/workflows/release.yml` publishes a new GitHub release **only for pushes to `main`** that change one of these:
 
 - `Ticket to Hell via Dieppe - Audiobook.epub`, `- Illustrated.epub` or `- Text Only.epub`
 - `Ticket to Hell via Dieppe - Illustrated.pdf`
@@ -125,9 +125,9 @@ It can also be run by hand from the Actions tab ("Run workflow"), but the job re
 
 ## Web page (GitHub Pages)
 
-`site/` is a single static page, published at `https://rprouse.github.io/ticket-to-hell/` by `.github/workflows/pages.yml` on pushes to `main` that change `site/` or that workflow. There is no build step in CI; the folder is uploaded as it is (minus `build_images.py`).
+`site/` is a single static page, published at `https://tth-dieppe.github.io/ticket-to-hell/` by `.github/workflows/pages.yml` on pushes to `main` that change `site/` or that workflow. There is no build step in CI; the folder is uploaded as it is (minus `build_images.py`).
 
-- **Downloads:** each button links to `https://github.com/rprouse/ticket-to-hell/releases/latest/download/<asset name>`, so it always serves the newest release with no redeploy. `script.js` then asks the GitHub API for the latest release and fills in the exact file sizes and release date. If the API call fails, the static links and sizes in `index.html` still work. If an asset name in `release.yml` changes, change the matching `href` and `data-asset` in `index.html`.
+- **Downloads:** each button links to `https://github.com/tth-dieppe/ticket-to-hell/releases/latest/download/<asset name>`, so it always serves the newest release with no redeploy. `script.js` then asks the GitHub API for the latest release and fills in the exact file sizes and release date. If the API call fails, the static links and sizes in `index.html` still work. If an asset name in `release.yml` changes, change the matching `href` and `data-asset` in `index.html`.
 - **Text:** the blurb is copied from `Description.txt` by hand (with a curly apostrophe and an em dash for `--`). Update both if the description changes.
 - **Images:** `python site/build_images.py` (needs Pillow) writes `cover.jpg` and `cover@2x.jpg` from `Book Cover.png`, and `social.jpg` (the 1200×630 link preview) plus the icons from `Audiobook Cover.png`. It never touches the originals. Rerun it and commit the results after changing a cover.
 - **Preview locally:** `python -m http.server 8000 --directory site`, then open `http://localhost:8000`. Opening `index.html` straight from disk doesn't load the CSS in every browser because of the apostrophe in the folder name.
