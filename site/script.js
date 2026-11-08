@@ -1,6 +1,7 @@
-// Fills in live file sizes and release details from the latest GitHub release.
+// Fills in file sizes and release details from the latest GitHub release.
 // The download links in index.html already point at /releases/latest/download/<file>,
-// so the page works fully without this script; it only adds detail.
+// so they always serve the newest release. This script leaves those links alone (so a
+// copied link stays evergreen) and only adds the sizes and release date.
 
 (function () {
   "use strict";
@@ -28,7 +29,6 @@
     document.querySelectorAll("[data-asset]").forEach(function (link) {
       var asset = assets[link.getAttribute("data-asset")];
       if (!asset) return;
-      link.href = asset.browser_download_url;
       var size = link.querySelector(".size");
       if (size) size.textContent = formatSize(asset.size);
     });
@@ -47,5 +47,5 @@
   fetch(API, { headers: { Accept: "application/vnd.github+json" } })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (release) { if (release) apply(release); })
-    .catch(function () { /* keep the static links and sizes */ });
+    .catch(function () { /* the links still work; sizes just stay hidden */ });
 })();

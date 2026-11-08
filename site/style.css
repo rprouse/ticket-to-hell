@@ -213,6 +213,7 @@ h1 span { display: block; color: var(--red); }
   color: var(--red-ink);
 }
 
+.button .size:empty { display: none; }
 .button .size {
   font-weight: 400;
   font-size: 0.85rem;
