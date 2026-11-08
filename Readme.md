@@ -10,6 +10,10 @@ Ticket to Hell is a gruelling account of war and captivity, and of the qualities
 
 ![Ticket to Hell](./Audiobook%20Cover.png)
 
+## Download
+
+Download the ebooks, PDF and audiobook from the [book's web page](https://rprouse.github.io/ticket-to-hell/) or the [latest release](https://github.com/rprouse/ticket-to-hell/releases/latest).
+
 ## Notes
 
 The book was originally published in hardback in 1982 then paperback in 1983 and has since gone out of print. This repository aims to archive and re-release the book in digital form for ebook and audiobook readers.

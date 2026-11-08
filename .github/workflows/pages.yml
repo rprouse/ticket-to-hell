@@ -1,0 +1,50 @@
+# Publishes the book's web page (the site/ folder) to GitHub Pages.
+#
+# Triggers: a push to main that changes site/ or this workflow, or a manual run from the Actions tab.
+# The page links to /releases/latest/download/<file>, so a new book release does not need a redeploy.
+# One-time setup: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+
+name: Publish web page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write      # to deploy to Pages
+  id-token: write   # to verify the deployment came from this repo
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Leave the image script out of the published site
+        run: rm site/build_images.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site folder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
