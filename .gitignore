@@ -371,3 +371,5 @@ coverage.xml
 Articles/
 Claude outputs/
 Scans/
+# Local preview copy of the MP3s (pages.yml copies them at deploy time)
+site/listen/audio/

@@ -6,6 +6,7 @@ writes resized copies into site/images/:
 - cover.jpg / cover@2x.jpg   portrait cover for the page (from Book Cover.png)
 - social.jpg                 1200x630 link-preview image (from Audiobook Cover.png)
 - favicon.png / apple-touch-icon.png  small square icons (from Audiobook Cover.png)
+- audiobook.jpg              600x600 square art for the Listen page and lock screen (from Audiobook Cover.png)
 
 Run after changing either cover:  python site/build_images.py
 Needs Pillow (pip install pillow). The outputs are committed, so the Pages
@@ -55,6 +56,9 @@ def main() -> None:
         icon = square.crop((left, 0, left + side, side))
         save_png(icon.resize((180, 180), Image.LANCZOS), "apple-touch-icon.png")
         save_png(icon.resize((64, 64), Image.LANCZOS), "favicon.png")
+
+        # The whole square art for the Listen page and the phone's lock screen while the audiobook plays.
+        save_jpeg(square.resize((600, 600), Image.LANCZOS), "audiobook.jpg")
 
 
 if __name__ == "__main__":

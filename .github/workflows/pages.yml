@@ -1,6 +1,7 @@
 # Publishes the book's web page (the site/ folder) to GitHub Pages.
 #
-# Triggers: a push to main that changes site/ or this workflow, or a manual run from the Actions tab.
+# Triggers: a push to main that changes site/, Audiobook/ or this workflow, or a manual run from the Actions tab.
+# The audiobook MP3s are copied into site/listen/audio/ here, at deploy time, so they are not stored twice in the repo.
 # The page links to /releases/latest/download/<file>, so a new book release does not need a redeploy.
 # One-time setup: Settings → Pages → Build and deployment → Source: "GitHub Actions".
 
@@ -11,6 +12,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "Audiobook/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -36,6 +38,12 @@ jobs:
 
       - name: Leave the image script out of the published site
         run: rm site/build_images.py
+
+      - name: Add the audiobook MP3s for the Listen page
+        run: |
+          mkdir -p site/listen/audio
+          cp Audiobook/*.mp3 site/listen/audio/
+          du -sh site
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
