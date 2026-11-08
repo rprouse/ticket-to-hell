@@ -26,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 OUT = ROOT / "site" / "read"
 IMG = ROOT / "Images"
-BASE = "https://tth-dieppe.github.io/ticket-to-hell/"
+BASE = "https://tth-dieppe.github.io/"
 BOOK = "Ticket to Hell via Dieppe"
 DISPLAY = 1200       # longest side of the image shown in the page
 THUMB = 480          # longest side of a gallery thumbnail
@@ -144,7 +144,7 @@ FOOTER = """<footer class="site-footer">
   <p>Copyright © 1982 A. Robert Prouse. Shared under the
     <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>
     licence.</p>
-  <p><a href="../">About the book and downloads</a> · <a href="https://github.com/tth-dieppe/ticket-to-hell">Source files on GitHub</a></p>
+  <p><a href="../">About the book and downloads</a> · <a href="https://github.com/tth-dieppe/tth-dieppe.github.io">Source files on GitHub</a></p>
 </footer>"""
 
 
@@ -181,7 +181,7 @@ def page(slug, title, desc, main, kind="chapter", image=None):
 <a class="skip-link" href="#main">Skip to text</a>
 <header class="bar">
   <div class="bar-in">
-    <a class="home" href="./">Ticket to Hell <span>via Dieppe</span></a>
+    <a class="home" href="../" title="About the book and downloads">Ticket to Hell <span>via Dieppe</span></a>
     <nav class="bar-nav" aria-label="Book">
       <a href="./#contents">Contents</a>
       <a href="gallery.html">Pictures</a>
@@ -248,6 +248,7 @@ contents = f"""<div class="intro">
     <p class="book-author">A. Robert Prouse</p>
     <p class="start"><a class="button primary" href="{sections[0][0]}.html" id="start">Start reading</a></p>
     <p class="continue" id="continue" hidden></p>
+    <p class="other-editions">Prefer an ebook, PDF or the audiobook? <a href="../#downloads">Download them free</a></p>
   </div>
 </div>
 {dedication}

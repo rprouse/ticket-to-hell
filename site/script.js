@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  var API = "https://api.github.com/repos/tth-dieppe/ticket-to-hell/releases/latest";
+  var API = "https://api.github.com/repos/tth-dieppe/tth-dieppe.github.io/releases/latest";
 
   function formatSize(bytes) {
     if (bytes >= 100e6) return Math.round(bytes / 1e6) + " MB";
