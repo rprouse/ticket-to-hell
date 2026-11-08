@@ -369,4 +369,5 @@ coverage.xml
 # Project specific files
 *.zip
 Articles/
+Claude outputs/
 Scans/

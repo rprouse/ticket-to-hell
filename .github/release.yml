@@ -1,0 +1,96 @@
+# Publishes a GitHub release whenever a finished edition of the book changes on main.
+#
+# Triggers: a push to main that changes any EPUB, the illustrated PDF, or anything in Audiobook/.
+# Assets:   the three EPUBs, the PDF, and the audiobook MP3s zipped into one file.
+# Can also be run by hand from the Actions tab ("Run workflow"), but only against main.
+
+name: Release book editions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Ticket to Hell via Dieppe - Audiobook.epub"
+      - "Ticket to Hell via Dieppe - Illustrated.epub"
+      - "Ticket to Hell via Dieppe - Text Only.epub"
+      - "Ticket to Hell via Dieppe - Illustrated.pdf"
+      - "Audiobook/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to create the release and tag
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: List what changed in this push
+        id: changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          {
+            echo 'list<<EOF'
+            if [ "${{ github.event_name }}" = "push" ] && [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+              gh api "repos/${{ github.repository }}/compare/${BEFORE}...${{ github.sha }}" \
+                --jq '.files[].filename' \
+                | grep -E '^(Ticket to Hell via Dieppe - .*\.(epub|pdf)|Audiobook/)' \
+                | sed 's/^/- /' || true
+            else
+              echo "- Manual release of the current editions"
+            fi
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Gather release files
+        run: |
+          set -euo pipefail
+          mkdir dist
+          cp "Ticket to Hell via Dieppe - Illustrated.epub" dist/Ticket-to-Hell-via-Dieppe-Illustrated.epub
+          cp "Ticket to Hell via Dieppe - Text Only.epub"   dist/Ticket-to-Hell-via-Dieppe-Text-Only.epub
+          cp "Ticket to Hell via Dieppe - Audiobook.epub"   dist/Ticket-to-Hell-via-Dieppe-Audiobook.epub
+          cp "Ticket to Hell via Dieppe - Illustrated.pdf"  dist/Ticket-to-Hell-via-Dieppe-Illustrated.pdf
+          # MP3s are already compressed, so store them (-0) rather than recompress.
+          cp "Audiobook Cover.png" Audiobook/cover.png
+          (cd Audiobook && zip -0 -q "../dist/Ticket-to-Hell-via-Dieppe-Audiobook-MP3.zip" *.mp3 cover.png)
+          ls -l dist
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHANGES: ${{ steps.changes.outputs.list }}
+        run: |
+          set -euo pipefail
+          TAG="v$(date -u +%Y.%m.%d)-${{ github.run_number }}"
+          {
+            cat Description.txt
+            echo
+            echo "## Downloads"
+            echo
+            echo "- **Illustrated EPUB**: the full book with photos, drawings and documents"
+            echo "- **Text-Only EPUB**: the full book without images"
+            echo "- **Illustrated PDF**: 6×9 in pages, for reading on screen or printing"
+            echo "- **Audiobook EPUB**: the text prepared for text-to-speech"
+            echo "- **Audiobook MP3 ZIP**: the audiobook, one MP3 per chapter, with cover art"
+            echo
+            echo "## Changed in this release"
+            echo
+            echo "${CHANGES:-- (no edition files listed)}"
+            echo
+            echo "Built from commit ${{ github.sha }}."
+          } > notes.md
+          gh release create "$TAG" dist/* \
+            --target "${{ github.sha }}" \
+            --title "Ticket to Hell via Dieppe — $(date -u +'%B %-d, %Y') (build ${{ github.run_number }})" \
+            --notes-file notes.md
