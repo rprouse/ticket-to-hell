@@ -2,13 +2,17 @@
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-Robert Prouse was one of 5000 Canadians who volunteered for the disastrous August 1942 raid on Dieppe. Pinned down as soon as they hit the beach, Prouse was one of the many Canadians captured that they spent the rest of the war in German prison camps.
+Robert Prouse was one of 5000 Canadians who volunteered for the disastrous August 1942 raid on Dieppe. Pinned down as soon as they hit the beach, Prouse was one of the many Canadians captured that spent the rest of the war in German prison camps.
 
 In a secret diary, Prouse kept a faithful record of three years' captivity. Drawn from that log, this account offers an unusually honest, accurate picture of captives and captors. Prouse tells of the horrors faced by those in the German camps, of his two escape attempts, of courage, bravery, tragedy--and the remarkable spirit of men trapped together under inhuman conditions.
 
 Ticket to Hell is a gruelling account of war and captivity, and of the qualities of the human spirit that endure it.
 
 ![Ticket to Hell](./Audiobook%20Cover.png)
+
+## Download
+
+Download the ebooks, PDF and audiobook from the [book's web page](https://rprouse.github.io/ticket-to-hell/) or the [latest release](https://github.com/rprouse/ticket-to-hell/releases/latest).
 
 ## Notes
 
