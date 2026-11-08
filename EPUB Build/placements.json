@@ -1,0 +1,392 @@
+[
+ {
+  "id": "01-01",
+  "position": "Start of Chapter 1 (facing the chapter opening)",
+  "section": "1 - A Raid on Dieppe",
+  "at": "start"
+ },
+ {
+  "id": "01-02",
+  "position": "Chapter 1 — after the paragraph beginning ‘I started to work my way toward the beached craft…’",
+  "section": "1 - A Raid on Dieppe",
+  "after": "I started to work my way toward the beached craft"
+ },
+ {
+  "id": "01-03",
+  "position": "Chapter 1 — same position as 01-02 (they were a facing pair)",
+  "section": "1 - A Raid on Dieppe",
+  "after": "I started to work my way toward the beached craft"
+ },
+ {
+  "id": "01-04",
+  "position": "End of Chapter 1 — after the paragraph beginning ‘Slowly, I became aware that a deathly silence…’",
+  "section": "1 - A Raid on Dieppe",
+  "after": "Slowly, I became aware that a deathly silence"
+ },
+ {
+  "id": "01-05",
+  "position": "Chapter 2 — after the paragraph beginning ‘We were marched through Dieppe…’ (where they arrive at the hospital)",
+  "section": "2 - Limping Towards Germany",
+  "after": "We were marched through Dieppe"
+ },
+ {
+  "id": "02-01",
+  "position": "Chapter 3 — after the paragraph beginning ‘The camp at Molsdorf consisted of…’ (where the shackling is described)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "The camp at Molsdorf consisted of"
+ },
+ {
+  "id": "02-02",
+  "position": "Chapter 2 — after the paragraph beginning ‘One of the heroic figures to us was…’ (the double amputee it describes)",
+  "section": "2 - Limping Towards Germany",
+  "after": "One of the heroic figures to us was"
+ },
+ {
+  "id": "02-03",
+  "position": "Chapter 2 — after the paragraph beginning ‘We were fingerprinted and photographed…’",
+  "section": "2 - Limping Towards Germany",
+  "after": "We were fingerprinted and photographed"
+ },
+ {
+  "id": "03-01",
+  "position": "Chapter 3 — after the paragraph beginning ‘During the winter, the camp leaders usually organized…’ (this is the South Seas show he describes; the cast list includes R. Prouse)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "During the winter, the camp leaders usually organized"
+ },
+ {
+  "id": "03-02",
+  "position": "Chapter 3 — after the paragraph beginning ‘Apparently the men had entered the factory…’ (the work ultimatum)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "Apparently the men had entered the factory"
+ },
+ {
+  "id": "03-03",
+  "position": "Chapter 3 — with 03-02",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "Apparently the men had entered the factory"
+ },
+ {
+  "id": "03-04",
+  "position": "Chapter 3 — after the paragraph beginning ‘After our act of defiance, the camp settled…’ (the food paragraph)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "After our act of defiance, the camp settled"
+ },
+ {
+  "id": "03-05",
+  "position": "Chapter 3 — after the paragraph beginning ‘While these diversions made life bearable…’ (the electrocution)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "While these diversions made life bearable"
+ },
+ {
+  "id": "03-06",
+  "position": "Chapter 3 — with 03-05",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "While these diversions made life bearable"
+ },
+ {
+  "id": "03-07",
+  "position": "Chapter 3 — after the paragraph beginning ‘That first Christmas in Germany was a lonely one…’",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "That first Christmas in Germany was a lonely one"
+ },
+ {
+  "id": "03-08",
+  "position": "Chapter 4 — after the paragraph beginning ‘Our next move was to exchange places…’ (the escape date, April 27)",
+  "section": "4 - The Escape of Janek Mrachek",
+  "after": "Our next move was to exchange places"
+ },
+ {
+  "id": "03-09",
+  "position": "End of Chapter 3 — after the last paragraph (‘As I emerged from the cubicle…’); the book has an 8-page colour section here",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "at": "end"
+ },
+ {
+  "id": "03-10",
+  "position": "Chapter 8 — after the paragraph beginning ‘On June 5, a British POW…’ (the man who walked out of the gate)",
+  "section": "8 - The War Catches Up",
+  "after": "On June 5, a British POW"
+ },
+ {
+  "id": "03-11",
+  "position": "Chapter 3 — after the paragraph beginning ‘That first Christmas in Germany…’ (the Christmas crackers)",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "after": "That first Christmas in Germany"
+ },
+ {
+  "id": "03-12",
+  "position": "Chapter 7 — after the paragraph beginning ‘Prisoners in solitary would be taken out…’",
+  "section": "7 - Passing the Time",
+  "after": "Prisoners in solitary would be taken out"
+ },
+ {
+  "id": "03-13",
+  "position": "Chapter 8 — after the paragraph beginning ‘Alone in the cell, the time seemed endless…’",
+  "section": "8 - The War Catches Up",
+  "after": "Alone in the cell, the time seemed endless"
+ },
+ {
+  "id": "03-14",
+  "position": "End of Chapter 3 — after the last paragraph (‘As I emerged from the cubicle…’); the book has an 8-page colour section here",
+  "section": "3 - Niederorschel Work Kommando 1049",
+  "at": "end"
+ },
+ {
+  "id": "03-15",
+  "position": "Chapter 6 — after the paragraph beginning ‘On September 16, my eye having healed…’ (the move to Mühlhausen); this is the chapter’s namesake",
+  "section": "6 - The Castle on the Hill",
+  "after": "On September 16, my eye having healed"
+ },
+ {
+  "id": "03-16",
+  "position": "Chapter 6 — after the paragraph beginning ‘The earth was hidden in the ceilings…’",
+  "section": "6 - The Castle on the Hill",
+  "after": "The earth was hidden in the ceilings"
+ },
+ {
+  "id": "04-01",
+  "position": "Start of Chapter 4",
+  "section": "4 - The Escape of Janek Mrachek",
+  "at": "start"
+ },
+ {
+  "id": "04-02",
+  "position": "Chapter 4 — after the first paragraph (‘My cubicle partner was Tommy Glassey…’)",
+  "section": "4 - The Escape of Janek Mrachek",
+  "after": "My cubicle partner was Tommy Glassey"
+ },
+ {
+  "id": "04-03",
+  "position": "Chapter 4 — after the paragraph beginning ‘This was the crucial moment…’",
+  "section": "4 - The Escape of Janek Mrachek",
+  "after": "This was the crucial moment"
+ },
+ {
+  "id": "05-01",
+  "position": "Chapter 8 — after the paragraph beginning ‘Another notice was posted on our bulletin board…’",
+  "section": "8 - The War Catches Up",
+  "after": "Another notice was posted on our bulletin board"
+ },
+ {
+  "id": "05-02",
+  "position": "Chapter 5 — after the paragraph beginning ‘We were then asked if we wished to join a planned mass escape…’",
+  "section": "5 - If at First...",
+  "after": "We were then asked if we wished to join a planned mass escape"
+ },
+ {
+  "id": "05-03",
+  "position": "Chapter 5 — after the paragraph beginning ‘We found our shelter on a flat car…’",
+  "section": "5 - If at First...",
+  "after": "We found our shelter on a flat car"
+ },
+ {
+  "id": "06-01",
+  "position": "Start of Chapter 6",
+  "section": "6 - The Castle on the Hill",
+  "at": "start"
+ },
+ {
+  "id": "06-02",
+  "position": "Chapter 6 — after the paragraph beginning ‘It was here that I learned of the remarkable courage of the sightless…’",
+  "section": "6 - The Castle on the Hill",
+  "after": "It was here that I learned of the remarkable courage of the sightless"
+ },
+ {
+  "id": "06-03",
+  "position": "Chapter 9 — after the paragraph beginning ‘Later that afternoon, I located the main records…’ (the hut of POW photos)",
+  "section": "9 - Forced March to Liberation",
+  "after": "Later that afternoon, I located the main records"
+ },
+ {
+  "id": "06-04",
+  "position": "With 06-03",
+  "section": "9 - Forced March to Liberation",
+  "after": "Later that afternoon, I located the main records"
+ },
+ {
+  "id": "06-05",
+  "position": "Chapter 6 — after the paragraph beginning ‘It was here that I learned of the remarkable courage of the sightless…’",
+  "section": "6 - The Castle on the Hill",
+  "after": "It was here that I learned of the remarkable courage of the sightless"
+ },
+ {
+  "id": "06-06",
+  "position": "Chapter 6 — after the paragraph beginning ‘I was interned here for ten days…’ (book position)",
+  "section": "6 - The Castle on the Hill",
+  "after": "I was interned here for ten days"
+ },
+ {
+  "id": "07-01",
+  "position": "Start of Chapter 7",
+  "section": "7 - Passing the Time",
+  "at": "start"
+ },
+ {
+  "id": "07-02",
+  "position": "Chapter 7 — after the paragraph beginning ‘I looked through the eye but drew a blank…’",
+  "section": "7 - Passing the Time",
+  "after": "I looked through the eye but drew a blank"
+ },
+ {
+  "id": "07-03",
+  "position": "Chapter 7 — after the paragraph beginning ‘We would also get information from men sent into town…’ (sentences heard about)",
+  "section": "7 - Passing the Time",
+  "after": "We would also get information from men sent into town"
+ },
+ {
+  "id": "07-04",
+  "position": "With 07-03",
+  "section": "7 - Passing the Time",
+  "after": "We would also get information from men sent into town"
+ },
+ {
+  "id": "07-05",
+  "position": "With 07-03",
+  "section": "7 - Passing the Time",
+  "after": "We would also get information from men sent into town"
+ },
+ {
+  "id": "07-06",
+  "position": "Chapter 7 — after the paragraph beginning ‘Weekend activities varied…’",
+  "section": "7 - Passing the Time",
+  "after": "Weekend activities varied"
+ },
+ {
+  "id": "07-07",
+  "position": "Chapter 7 — after the paragraph beginning ‘When the camp wasn’t under punishment…’",
+  "section": "7 - Passing the Time",
+  "after": "When the camp wasn’t under punishment"
+ },
+ {
+  "id": "07-08",
+  "position": "Chapter 7 — inside the paragraph beginning ‘In our combine…’ (it sat at the top of a text page)",
+  "section": "7 - Passing the Time",
+  "after": "In our combine, we had a good group"
+ },
+ {
+  "id": "07-09",
+  "position": "Chapter 7 — after the paragraph beginning ‘With such an odd assortment of characters…’",
+  "section": "7 - Passing the Time",
+  "after": "With such an odd assortment of characters"
+ },
+ {
+  "id": "07-10",
+  "position": "End of Chapter 7 — after the last paragraph (‘Other soldiers found different alternatives…’)",
+  "section": "7 - Passing the Time",
+  "at": "end"
+ },
+ {
+  "id": "08-01",
+  "position": "Chapter 8 — after the paragraph beginning ‘The best part of the trip was the noon break…’",
+  "section": "8 - The War Catches Up",
+  "after": "The best part of the trip was the noon break"
+ },
+ {
+  "id": "08-02",
+  "position": "Chapter 8 — after the paragraph beginning ‘I spent hours devising means of concealment…’ (‘we would have just got out… when the siren would blare again’)",
+  "section": "8 - The War Catches Up",
+  "after": "I spent hours devising means of concealment"
+ },
+ {
+  "id": "08-03",
+  "position": "Chapter 8 — after the paragraph beginning ‘To offset this shortage, a wood party was formed…’ (the horse dying)",
+  "section": "8 - The War Catches Up",
+  "after": "To offset this shortage, a wood party was formed"
+ },
+ {
+  "id": "08-04",
+  "position": "Chapter 8 — with 08-01",
+  "section": "8 - The War Catches Up",
+  "after": "The best part of the trip was the noon break"
+ },
+ {
+  "id": "08-05",
+  "position": "Chapter 8 — after the paragraph beginning ‘We welcomed the trips…’",
+  "section": "8 - The War Catches Up",
+  "after": "We welcomed the trips"
+ },
+ {
+  "id": "08-06",
+  "position": "Chapter 8 — after the paragraph beginning ‘We welcomed the trips…’",
+  "section": "8 - The War Catches Up",
+  "after": "We welcomed the trips"
+ },
+ {
+  "id": "08-07",
+  "position": "Chapter 8 — after the paragraph beginning ‘Earlier that year, the camp had been cut off…’ (the briquettes)",
+  "section": "8 - The War Catches Up",
+  "after": "Earlier that year, the camp had been cut off"
+ },
+ {
+  "id": "08-08",
+  "position": "Chapter 8 — after the paragraph beginning ‘The heavy raids continued during the night…’ (near the end of the chapter)",
+  "section": "8 - The War Catches Up",
+  "after": "The heavy raids continued during the night"
+ },
+ {
+  "id": "09-01",
+  "position": "Chapter 9 — after the paragraph beginning ‘At 5:05 p.m. on April 11…’",
+  "section": "9 - Forced March to Liberation",
+  "after": "At 5:05 p.m. on April 11"
+ },
+ {
+  "id": "09-02",
+  "position": "Chapter 9 — after the paragraph beginning ‘I found a large house all boarded up…’",
+  "section": "9 - Forced March to Liberation",
+  "after": "I found a large house all boarded up"
+ },
+ {
+  "id": "09-03",
+  "position": "Chapter 9 — after the paragraph beginning ‘We began rounding up Jerry prisoners…’",
+  "section": "9 - Forced March to Liberation",
+  "after": "We began rounding up Jerry prisoners"
+ },
+ {
+  "id": "09-04",
+  "position": "With 09-03",
+  "section": "9 - Forced March to Liberation",
+  "after": "We began rounding up Jerry prisoners"
+ },
+ {
+  "id": "09-05",
+  "position": "Chapter 9 — after the paragraph beginning ‘We began rounding up Jerry prisoners…’",
+  "section": "9 - Forced March to Liberation",
+  "after": "We began rounding up Jerry prisoners"
+ },
+ {
+  "id": "09-06",
+  "position": "Chapter 9 — with 09-05",
+  "section": "9 - Forced March to Liberation",
+  "after": "We began rounding up Jerry prisoners"
+ },
+ {
+  "id": "09-07",
+  "position": "Chapter 9 — after the paragraph beginning ‘I ate my fill of German sausage…’ (where he takes the Hitler photos)",
+  "section": "9 - Forced March to Liberation",
+  "after": "I ate my fill of German sausage"
+ },
+ {
+  "id": "09-08",
+  "position": "Chapter 9 — with 09-07",
+  "section": "9 - Forced March to Liberation",
+  "after": "I ate my fill of German sausage"
+ },
+ {
+  "id": "10-01",
+  "position": "Start of the Epilogue",
+  "section": "Epilogue",
+  "at": "start"
+ },
+ {
+  "id": "11-01",
+  "position": "Appendix ‘A Note on Photos, Mementos and Artifacts’ (it faced that page)",
+  "section": "Note on Photos",
+  "at": "end"
+ },
+ {
+  "id": "11-02",
+  "position": "After ‘Organized Compassion’ (last page of the book)",
+  "section": "Organized Compassion",
+  "at": "end"
+ }
+]

@@ -1,0 +1,54 @@
+/* Ticket to Hell via Dieppe — illustrated EPUB */
+body { font-family: Georgia, "Times New Roman", serif; line-height: 1.45; margin: 0 4%; }
+p { margin: 0; text-indent: 1.4em; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+h1 + p, h2 + p, h3 + p, figure + p, aside + p, table + p { text-indent: 0; }
+
+h1 { font-size: 1.6em; text-align: center; margin: 2.5em 0 1.6em; font-weight: bold; page-break-before: always; }
+h1 .chapnum { display: block; font-size: 0.6em; font-weight: normal; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4em; }
+h2 { font-size: 1.25em; margin: 1.6em 0 0.6em; }
+h3 { font-size: 1.05em; margin: 1.6em 0 0.5em; text-align: center; letter-spacing: 0.05em; }
+
+/* front matter */
+.cover { text-align: center; margin: 0; padding: 0; }
+.cover img { max-width: 100%; max-height: 100%; }
+.titlepage { text-align: center; margin-top: 25%; }
+.titlepage p { text-indent: 0; text-align: center; }
+.titlepage .t1 { font-size: 2.6em; font-weight: bold; line-height: 1.1; }
+.titlepage .t2 { font-size: 1.8em; margin-bottom: 1.2em; }
+.titlepage .sub { font-size: 0.9em; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3em; }
+.titlepage .author { font-size: 1.4em; font-weight: bold; }
+.copyright { margin-top: 40%; font-size: 0.8em; }
+.copyright p, .dedication p { text-indent: 0; margin-bottom: 1em; text-align: left; }
+.dedication { margin: 30% 10% 0; font-style: italic; }
+.dedication p { text-align: center; }
+ol.toc { list-style: none; padding: 0; }
+ol.toc li { margin: 0.4em 0; }
+
+/* figures */
+figure { margin: 1.6em 0; text-align: center; page-break-inside: avoid; break-inside: avoid; }
+figure img { max-width: 100%; max-height: 90vh; height: auto; }
+figure.document img, figure.map img { max-height: 95vh; }
+figcaption { font-size: 0.85em; font-style: italic; margin-top: 0.5em; text-align: center; line-height: 1.35; }
+figcaption .figtitle { font-style: normal; }
+.transcription { display: block; font-style: normal; text-align: left; font-size: 0.92em; margin-top: 0.7em; padding: 0.5em 0.8em; border-left: 2px solid #999; }
+.transcription .label { font-weight: bold; }
+
+aside.sidebar { margin: 1.6em 4%; padding: 0.8em 1em; border: 1px solid #333; font-size: 0.85em; text-align: center; page-break-inside: avoid; }
+aside.sidebar h3 { margin: 0.3em 0; font-size: 1em; text-transform: uppercase; }
+aside.sidebar p { text-indent: 0; text-align: center; margin-bottom: 0.6em; }
+
+/* ballads */
+p.verse { text-indent: 0; text-align: left; margin: 0.8em 0 0.8em 8%; line-height: 1.5; }
+p.note { text-indent: 0; margin: 1em 0; }
+
+/* appendices */
+p.doc-head { text-indent: 0; font-weight: bold; margin: 1.4em 0 0.4em; text-align: left; }
+p.doc { text-indent: 0; margin: 0 0 0.6em; }
+p.sig { text-indent: 0; text-align: right; font-style: italic; margin: 0.2em 0 0.8em; }
+ol.orders { margin: 0.4em 0 0.6em 1.5em; padding: 0; }
+ol.orders li { margin: 0.15em 0; }
+table.raids { border-collapse: collapse; margin: 1em auto; font-size: 0.9em; }
+table.raids caption { font-weight: bold; margin-bottom: 0.4em; }
+table.raids td, table.raids th { padding: 0.1em 0.8em; border-bottom: 1px solid #ccc; }
+table.raids td.n { text-align: right; }
+p.total { text-indent: 0; text-align: center; font-weight: bold; margin: 0.8em 0 1.5em; }
